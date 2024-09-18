@@ -89,7 +89,7 @@ def jogo():
 
         cabeca_cobra = []
         cabeca_cobra.append(x)
-        cabeca_cabra.append(y)
+        cabeca_cobra.append(y)
         corpo_cobra.append(cabeca_cobra)
 
         # if len(cobra)
