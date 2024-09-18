@@ -92,4 +92,29 @@ def jogo():
         cabeca_cobra.append(y)
         corpo_cobra.append(cabeca_cobra)
 
-        # if len(cobra)
+        if len(corpo_cobra) > comprimento_cobra:
+            del corpo_cobra[0]
+
+        for segmento in corpo_cobra[:-1]:
+            if segmento == cabeca_cobra:
+                fechar_jogo = True
+
+        for segmento in corpo_cobra:
+            pygame.draw.rect(tela, preto, [segmento[0], segmento[1], tamanho_bloco, tamanho_bloco])
+
+        exibir_placar(comprimento_cobra - 1)
+
+        pygame.display.update()
+
+        if x == comida_x and y == comida_y:
+            comida_x = round(random.randrange(0, largura_tela - tamanho_bloco) / 10.0) * 10.0
+            comida_y = round(random.randrange(0, altura_tela - tamanho_bloco) / 10.0) * 10.0
+            comprimento_cobra += 1
+
+        relogio.tick(velocidade)
+
+    pygame.quit()
+    quit()
+
+jogo()
+
